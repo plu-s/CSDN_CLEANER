@@ -1,0 +1,17 @@
+{
+    "author": "加号减减号",
+    "homepage_url": "https://github.com/plu-s/CSDN_CLEANER.git",
+    
+	"manifest_version": 2,
+	"name": "CSDN_CLEANER",
+	"version": "1.0",
+	
+	"description": "清除CSDN博客页面无关信息，使界面更清净",
+	
+	"content_scripts": [
+		{
+			"matches": ["*://blog.csdn.net/*"],
+			"js": ["cleaner.js"]
+		}
+	]
+}
