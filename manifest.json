@@ -4,9 +4,9 @@
     
 	"manifest_version": 2,
 	"name": "CSDN_CLEANER",
-	"version": "1.1",
+	"version": "1.2",
 	
-	"description": "清除CSDN博客页面无关信息，使界面更清净",
+	"description": "移除CSDN博客页面无关信息，界面更清爽简洁",
 	
 	"content_scripts": [
 		{
