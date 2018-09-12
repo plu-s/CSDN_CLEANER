@@ -104,3 +104,46 @@ if (reportBtn)
 {
     reportBtn.parentNode.removeChild(reportBtn);
 }
+
+
+/* 移除页面右侧的推荐文章列表 */
+var pageRightRecommendArticlesList = document.getElementsByClassName("recommend-right");
+if (pageRightRecommendArticlesList && pageRightRecommendArticlesList.length == 1)
+{
+    pageRightRecommendArticlesList[0].parentNode.removeChild(pageRightRecommendArticlesList[0]);
+}
+
+
+/* 移除包含了点赞、评论、收藏、上一篇及下一篇按钮的工具盒子 */
+var toolBox = document.getElementsByClassName("tool-box");
+if (toolBox && toolBox.length == 1)
+{
+    toolBox[0].parentNode.removeChild(toolBox[0]);
+}
+
+
+/* 修复页面布局 */
+var mainBox = document.getElementById("mainBox");
+var main = document.getElementsByTagName("main");
+var aside = document.getElementsByTagName("aside");
+if (mainBox && main && main.length == 1 && aside && aside.length == 1)
+{
+    mainBox.insertBefore(aside[0], main[0]);
+    main[0].style.float = "left";
+    main[0].style.marginLeft = "10px";
+    mainBox.style.width = "1516px";
+}
+
+
+/* 移除文章和评论之间的广告，这些广告可能存在多个 className，暂时只收集到两个 */
+var adBetweenCommentAndArticle1 = document.getElementsByClassName("t0 clearfix");
+if (adBetweenCommentAndArticle1 && adBetweenCommentAndArticle1.length == 1)
+{
+    adBetweenCommentAndArticle1[0].parentNode.removeChild(adBetweenCommentAndArticle1[0]);
+}
+
+var adBetweenCommentAndArticle2 = document.getElementsByClassName("p4course_target");
+if (adBetweenCommentAndArticle2 && adBetweenCommentAndArticle2.length == 1)
+{
+    adBetweenCommentAndArticle2[0].parentNode.removeChild(adBetweenCommentAndArticle2[0]);
+}
