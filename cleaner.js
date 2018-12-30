@@ -1,21 +1,12 @@
-﻿
-/* 移除页面最顶部的工具栏 */
-var toolbar = document.getElementsByClassName("csdn-toolbar csdn-toolbar tb_disnone ");
+﻿/* 移除页面最顶部的导航栏 */
+var toolbar = document.getElementsByClassName("csdn-toolbar tb_disnone ");
 if (toolbar && toolbar.length == 1)
 {
     toolbar[0].parentNode.removeChild(toolbar[0]);
 }
 
 
-/* 移除工具栏与文章内容之间的 header */
-var header = document.getElementsByTagName("header");
-if (header && header.length == 1)
-{
-    document.body.removeChild(header[0]);
-}
-
-
-/* 移除侧边栏 div，包括热门文章、最新评论等以及一些广告 */
+/* 移除文章左边包括热门文章、最新评论等内容集合以及一些广告 */
 /* 仅保留博主基本账号信息 */
 var aside = document.getElementsByTagName("aside");
 if (aside && aside.length == 1)
@@ -36,32 +27,6 @@ if (aside && aside.length == 1)
 }
 
 
-/* 移除文章与评论之间的 EDU 广告 */
-var eduPromotion = document.getElementsByClassName("edu-promotion");
-if (eduPromotion && eduPromotion.length == 1)
-{
-    eduPromotion[0].parentNode.removeChild(eduPromotion[0]);
-}
-
-
-/* 直接移除评论下方的推荐文章列表时会有JS脚本检测 */
-/* 移除之后在移动鼠标时会重新加载列表中的广告 */
-/* 所以选择隐藏而非移除 */
-var recommendArticlesList = document.getElementsByClassName("recommend-box");
-if (recommendArticlesList && recommendArticlesList.length == 1)
-{
-    recommendArticlesList[0].style.display = "none";
-}
-
-
-/* 移除页面底部的登录/注册提示框 */
-var pulllogBox = document.getElementsByClassName("pulllog-box");
-if (pulllogBox && pulllogBox.length == 1)
-{
-    pulllogBox[0].parentNode.removeChild(pulllogBox[0]);
-}
-
-
 /* 自动【阅读全文】 */
 var readMore = document.getElementById("btn-readmore");
 if (readMore)
@@ -70,31 +35,55 @@ if (readMore)
 }
 
 
-/* 移除页面右下角的大广告 */
-var bottomRightAdLarge = document.getElementsByClassName("box-box-large");
-if (bottomRightAdLarge && bottomRightAdLarge.length == 1)
+/* 移除文章底部下方的推荐文章列表 */
+var recommendArticlesList = document.getElementsByClassName("recommend-box");
+if (recommendArticlesList && recommendArticlesList.length == 1)
 {
-    bottomRightAdLarge[0].parentNode.removeChild(bottomRightAdLarge[0]);
+    recommendArticlesList[0].parentNode.removeChild(recommendArticlesList[0]);
 }
 
 
-/* 移除页面右下角的默认广告 */
-/* 这组广告默认不显示，在页面缩放比例为 110% 时才会显示 */
-var bottomRightAdDefault = document.getElementsByClassName("box-box-default");
-if (bottomRightAdDefault && bottomRightAdDefault.length == 1)
+/* 移除文章底部的广告，这些广告可能存在多个 className，目前收集到三个 */
+var adAtPageBottom1 = document.getElementsByClassName("t0 clearfix");
+if (adAtPageBottom1 && adAtPageBottom1.length == 1)
 {
-    bottomRightAdDefault[0].parentNode.removeChild(bottomRightAdDefault[0]);
+    adAtPageBottom1[0].parentNode.removeChild(adAtPageBottom1[0]);
+}
+
+var adAtPageBottom2 = document.getElementsByClassName("p4course_target");
+if (adAtPageBottom2 && adAtPageBottom2.length == 1)
+{
+    adAtPageBottom2[0].parentNode.removeChild(adAtPageBottom2[0]);
+}
+
+var adAtPageBottom3 = document.getElementsByClassName("mediav_ad");
+if (adAtPageBottom3 && adAtPageBottom3.length == 1)
+{
+    adAtPageBottom3[0].parentNode.removeChild(adAtPageBottom3[0]);
 }
 
 
-/* 移除微信、微博、QQ分享按钮 */
-var shareButtons = document.getElementsByClassName("bdsharebuttonbox");
-if (shareButtons)
+/* 移除当缩小页面时出现在页面左边的广告 */
+var fourthColumn = document.getElementsByClassName("fourth_column");
+if (fourthColumn && fourthColumn.length == 1)
 {
-    for (var i = 0; i < shareButtons.length;)
-    {
-        shareButtons[i].parentNode.removeChild(shareButtons[i]);
-    }
+    fourthColumn[0].parentNode.removeChild(fourthColumn[0]);
+}
+
+
+/* 移除 "VIP去广告" */
+var meauGotopBox = document.getElementsByClassName("meau-gotop-box");
+if (meauGotopBox && meauGotopBox.length == 1)
+{
+    meauGotopBox[0].parentNode.removeChild(meauGotopBox[0]);
+}
+
+
+/* 移除2018博客之星链接 */
+var indexSuperise = document.getElementsByClassName("indexSuperise");
+if (indexSuperise && indexSuperise.length == 1)
+{
+    indexSuperise[0].parentNode.removeChild(indexSuperise[0]);
 }
 
 
@@ -106,15 +95,15 @@ if (reportBtn)
 }
 
 
-/* 移除页面右侧的推荐文章列表 */
-var pageRightRecommendArticlesList = document.getElementsByClassName("recommend-right");
-if (pageRightRecommendArticlesList && pageRightRecommendArticlesList.length == 1)
+/* 移除回到顶部按钮 */
+var backtopBtn = document.getElementById("backtop");
+if (backtopBtn)
 {
-    pageRightRecommendArticlesList[0].parentNode.removeChild(pageRightRecommendArticlesList[0]);
+    backtopBtn.parentNode.removeChild(backtopBtn);
 }
 
 
-/* 移除包含了点赞、评论、收藏、上一篇及下一篇按钮的工具盒子 */
+/* 移除点赞、分享等按钮所在的工具栏 */
 var toolBox = document.getElementsByClassName("tool-box");
 if (toolBox && toolBox.length == 1)
 {
@@ -122,28 +111,31 @@ if (toolBox && toolBox.length == 1)
 }
 
 
-/* 修复页面布局 */
-var mainBox = document.getElementById("mainBox");
-var main = document.getElementsByTagName("main");
-var aside = document.getElementsByTagName("aside");
-if (mainBox && main && main.length == 1 && aside && aside.length == 1)
+/* CSDN 页面改版后文章评论从底部移到了页面右部 */
+/* 移除评论下的推荐文章列表 */
+var rightRecommendArticlesList = document.getElementsByClassName("recommend-fixed-box");
+if (rightRecommendArticlesList && rightRecommendArticlesList.length == 1)
 {
-    mainBox.insertBefore(aside[0], main[0]);
-    main[0].style.float = "left";
-    main[0].style.marginLeft = "10px";
-    mainBox.style.width = "1516px";
+    var article_li = rightRecommendArticlesList[0].getElementsByTagName("li");
+    if (article_li)
+    {
+        for (var i = article_li.length - 1; i >= 0; i--)
+        {
+            article_li[i].parentNode.removeChild(article_li[i]);
+        }
+    }
 }
 
 
-/* 移除文章和评论之间的广告，这些广告可能存在多个 className，暂时只收集到两个 */
-var adBetweenCommentAndArticle1 = document.getElementsByClassName("t0 clearfix");
-if (adBetweenCommentAndArticle1 && adBetweenCommentAndArticle1.length == 1)
+/* 设置右边评论不随滚动条移动 */
+var recommendRight = document.getElementsByClassName("recommend-right");
+if (recommendRight && recommendRight.length == 1)
 {
-    adBetweenCommentAndArticle1[0].parentNode.removeChild(adBetweenCommentAndArticle1[0]);
-}
-
-var adBetweenCommentAndArticle2 = document.getElementsByClassName("p4course_target");
-if (adBetweenCommentAndArticle2 && adBetweenCommentAndArticle2.length == 1)
-{
-    adBetweenCommentAndArticle2[0].parentNode.removeChild(adBetweenCommentAndArticle2[0]);
+    recommendRight[0].style.paddingTop = "1px";
+    
+    var rightRecommendComment = document.getElementsByClassName("right_recommend_comment");
+    if (rightRecommendComment && rightRecommendComment.length == 1)
+    {
+        recommendRight[0].appendChild(rightRecommendComment[0]);
+    }
 }
