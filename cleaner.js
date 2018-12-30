@@ -35,6 +35,14 @@ if (readMore)
 }
 
 
+/* 移除页面底部的登录/注册提示框 */
+var pulllogBox = document.getElementsByClassName("pulllog-box");
+if (pulllogBox && pulllogBox.length == 1)
+{
+    pulllogBox[0].parentNode.removeChild(pulllogBox[0]);
+}
+
+
 /* 移除文章底部下方的推荐文章列表 */
 var recommendArticlesList = document.getElementsByClassName("recommend-box");
 if (recommendArticlesList && recommendArticlesList.length == 1)
